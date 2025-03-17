@@ -1,5 +1,6 @@
 {
   "name": "with-tailwind",
+  "author": "Danton Yuri Rutz",
   "private": true,
   "scripts": {
     "build": "turbo run build",

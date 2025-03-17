@@ -1,15 +1,17 @@
 import type { Config } from "tailwindcss";
 
-// We want each package to be responsible for its own content.
 const config: Omit<Config, "content"> = {
   theme: {
     extend: {
-      backgroundImage: {
-        "glow-conic":
-          "conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)",
+      colors: {
+        primaryWhite: "#ffffff",
+        primaryBlack: "#1c1c1c",
+        primaryBlue: "#1485c8",
+        secondaryBlue: "#003047",
       },
     },
   },
   plugins: [],
 };
+
 export default config;
