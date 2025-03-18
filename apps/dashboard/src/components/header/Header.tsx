@@ -16,9 +16,10 @@ export default function Header() {
   return (
     <Container
       tag="header"
-      className="sticky top-0 z-10 flex flex-row items-center justify-between py-4 border-b-2 border-primaryBlue bg-primaryWhite dark:bg-primaryBlack"
+      className="sticky top-0 z-10 flex flex-row items-center justify-between py-4 border-b-2 border-primaryBlue bg-primaryWhite/10 dark:bg-primaryBlack/10 backdrop-blur-md"
+
     >
-      <div className="flex flex-row gap-8 items-center">
+      <div className="flex flex-row gap-12 items-center">
         <Link href="/">
           <Image
             src={companyLogo}
@@ -28,10 +29,12 @@ export default function Header() {
         </Link>
         <Text tag="h6">Dashboard de Monitoramento</Text>
       </div>
-      <ConnectionStatus />
-      <div className="flex flex-row gap-4 items-center">
-        <ThemeSwitch />
-        <SettingsButton />
+      <div className="flex flex-row gap-12">
+        <ConnectionStatus />
+        <div className="flex flex-row gap-4">
+          <ThemeSwitch />
+          <SettingsButton />
+        </div>
       </div>
     </Container>
   );

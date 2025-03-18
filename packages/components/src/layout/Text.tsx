@@ -1,3 +1,7 @@
+// Componente genérico que renderiza diferentes tags de texto HTML (como "h1", "h2", "h3", "p", "span", etc.)
+// Com estilos responsivos de tamanho de fonte, que variam conforme a largura da tela
+// A propriedade `className` pode ser usada para adicionar estilos personalizados adicionais
+
 interface Props {
   children: React.ReactNode;
   tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
