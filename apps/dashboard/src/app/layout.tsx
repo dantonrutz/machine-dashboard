@@ -2,6 +2,8 @@ import "./globals.css";
 import "@repo/components/styles.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "../providers/theme-provider";
+import Header from "../components/header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +19,14 @@ interface Props {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="pt-BR">
-      <body className={`${inter.className} bg-white tracking-tight`}>
-        {children}
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body
+        className={`${inter.className} tracking-tight bg-primaryWhite text-primaryBlack dark:bg-primaryBlack dark:text-primaryWhite`}
+      >
+        <ThemeProvider>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
