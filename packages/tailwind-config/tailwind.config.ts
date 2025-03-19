@@ -12,6 +12,7 @@ const config: Omit<Config, "content"> = {
         secondaryBlue: "#003047",
         primaryRed: "#DC2626",
         primaryGreen: "#009900",
+        primaryOrange: "#eab308",
       },
       screens: {
         "440": "440px",
