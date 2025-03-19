@@ -5,9 +5,10 @@
 "use client";
 
 import React from "react";
-import { LoaderCircle, CheckCircle, XCircle } from "lucide-react";
+import { CheckCircle, XCircle } from "lucide-react";
 import Text from "@repo/components/layout/Text";
 import useNetworkStatus from "../../../hooks/useNetworkStatus";
+import { Skeleton } from "@repo/components/shadcn-ui/skeleton";
 
 export default function ConnectionStatus() {
   const { isOnline, isLoading } = useNetworkStatus();
@@ -16,11 +17,7 @@ export default function ConnectionStatus() {
     <div className="flex items-center gap-2 w-40">
       <Text tag="span">Conexão:</Text>
       {isLoading ? (
-        <LoaderCircle
-          size={20}
-          strokeWidth={2}
-          className="flex-shrink-0 animate-spin"
-        />
+        <Skeleton className="w-full h-7" />
       ) : isOnline ? (
         <div className="flex items-center gap-1 text-primaryGreen">
           <CheckCircle size={20} strokeWidth={2} />

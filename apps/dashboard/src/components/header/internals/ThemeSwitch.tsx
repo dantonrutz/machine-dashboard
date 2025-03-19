@@ -6,7 +6,8 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Sun, Moon, LoaderCircle } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
+import { Skeleton } from "@repo/components/shadcn-ui/skeleton";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
@@ -19,19 +20,23 @@ export default function ThemeSwitch() {
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      disabled={!mounted}
-      aria-label="Switch theme"
-      className="flex items-center justify-center p-1 rounded-lg transition-colors duration-200 hover:bg-gray-400/30"
-    >
+    <>
       {!mounted ? (
-        <LoaderCircle size={20} strokeWidth={2} className="animate-spin" />
-      ) : resolvedTheme === "dark" ? (
-        <Sun size={20} strokeWidth={2} />
+        <Skeleton className="w-7 h-7" />
       ) : (
-        <Moon size={20} strokeWidth={2} />
+        <button
+          onClick={toggleTheme}
+          disabled={!mounted}
+          aria-label="Switch theme"
+          className="flex items-center justify-center p-1 rounded-lg transition-colors duration-200 hover:bg-gray-400/30"
+        >
+          {resolvedTheme === "dark" ? (
+            <Sun size={20} strokeWidth={2} />
+          ) : (
+            <Moon size={20} strokeWidth={2} />
+          )}
+        </button>
       )}
-    </button>
+    </>
   );
 }

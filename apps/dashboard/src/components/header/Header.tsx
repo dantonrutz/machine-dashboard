@@ -17,7 +17,6 @@ export default function Header() {
     <Container
       tag="header"
       className="sticky top-0 z-10 flex flex-row items-center justify-between py-4 border-b-2 border-primaryBlue bg-primaryWhite/10 dark:bg-primaryBlack/10 backdrop-blur-md"
-
     >
       <div className="flex flex-row gap-12 items-center">
         <Link href="/">
