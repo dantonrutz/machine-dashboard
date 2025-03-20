@@ -1,5 +1,5 @@
-import DashboardScreen from "../screens/dashboard/Dashboard";
+import DashboardPage from "../screens/dashboard/DashboardPage";
 
 export default function Page() {
-  return <DashboardScreen />;
+  return <DashboardPage />;
 }
