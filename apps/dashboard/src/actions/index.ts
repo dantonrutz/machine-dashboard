@@ -1,9 +1,12 @@
+// Server action que simula um websocket, gerando dados de máquina simulados como temperatura, RPM, tempo de operação e alertas
+
 "use server";
 
 import { MachineDataType } from "@repo/types";
 
-let previousTemperature = 45;
-let previousRpm = 3000;
+let previousTemperature = 50;
+let previousRpm = 1300;
+let previousUptime = 540;
 
 export async function getMockedMachineData(): Promise<MachineDataType> {
   return new Promise((resolve) => {
@@ -23,22 +26,23 @@ export async function getMockedMachineData(): Promise<MachineDataType> {
       const id = `machine-${Math.floor(Math.random() * 10000)}`;
       const timestamp = new Date().toISOString();
 
-      // Controlar variação da temperatura e RPM
-      const temperatureChange = Math.random() * 6 - 3; // Variação de -3 a +3 graus
+      const temperatureChange = Math.random() * 6 - 3;
       previousTemperature = Math.max(
         0,
         Math.min(100, previousTemperature + temperatureChange),
-      ); // Temperatura entre 0 e 100°C
+      );
 
-      const rpmChange = Math.random() * 100 - 50; // Variação do RPM entre -50 e +50
-      previousRpm = Math.max(1000, Math.min(6000, previousRpm + rpmChange)); // RPM entre 1000 e 6000
+      const rpmChange = Math.random() * 100 - 50;
+      previousRpm = Math.max(1000, Math.min(6000, previousRpm + rpmChange));
 
       const metrics = {
         temperature: parseFloat(previousTemperature.toFixed(2)),
         rpm: Math.floor(previousRpm),
-        uptime: Math.floor(Math.random() * 1000),
+        uptime: previousUptime, // Usar o valor do uptime
         efficiency: parseFloat((Math.random() * 100).toFixed(2)),
       };
+
+      previousUptime += 10;
 
       let alerts:
         | {
@@ -47,8 +51,14 @@ export async function getMockedMachineData(): Promise<MachineDataType> {
             component: string;
           }[]
         | undefined = [];
+
       if (state === "ERROR") {
         alerts = [
+          {
+            level: "WARNING",
+            message: "Erro de comunicação com o sistema de monitoramento.",
+            component: "Sistema de monitoramento",
+          },
           {
             level: "CRITICAL",
             message: "Máquina em erro, precisa de manutenção imediata.",
@@ -61,6 +71,24 @@ export async function getMockedMachineData(): Promise<MachineDataType> {
             level: "WARNING",
             message: "Máquina parada, aguardando reinício.",
             component: "Sistema de acionamento",
+          },
+          {
+            level: "INFO",
+            message: "A máquina está parada e aguardando reinício.",
+            component: "Sistema de controle",
+          },
+        ];
+      } else if (state === "MAINTENANCE") {
+        alerts = [
+          {
+            level: "INFO",
+            message: "A máquina está em manutenção, operação suspensa.",
+            component: "Sistema de controle",
+          },
+          {
+            level: "WARNING",
+            message: "Recomenda-se verificar os componentes mecânicos.",
+            component: "Sistema mecânico",
           },
         ];
       }
