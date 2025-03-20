@@ -16,15 +16,15 @@ export default function DisplayMetrics({ machineMetrics }: Props) {
     },
     {
       label: "Disponibilidade",
-      value: 95,
+      value: 95, //dado mockado
     },
     {
       label: "Performance",
-      value: 72,
+      value: 72, //dado mockado
     },
     {
       label: "Qualidade",
-      value: 59,
+      value: 59, //dado mockado
     },
   ];
 
@@ -45,7 +45,7 @@ export default function DisplayMetrics({ machineMetrics }: Props) {
                   : "text-red-600"
             }
           >
-            {metric.value}%
+            {metric.value > 0 ? metric.value : 0}%
           </Text>
         </li>
       ))}

@@ -77,7 +77,7 @@ export default function LineChart({ metric }: Props) {
   ];
 
   return (
-    <ChartContainer config={{}} className="w-full max-h-[180px]">
+    <ChartContainer config={{}} className="w-full max-h-[180px]" role="figure">
       <RechartsLineChart
         accessibilityLayer
         data={mockedMachineData}

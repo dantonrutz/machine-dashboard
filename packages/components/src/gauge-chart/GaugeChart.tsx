@@ -11,7 +11,7 @@ interface Props {
   unit: string;
 }
 
-export default function Gauge2({ maxValue, value, label, unit }: Props) {
+export default function GaugeChart({ maxValue, value, label, unit }: Props) {
   const formattedValue = value.toFixed(0);
   const percentage = (value / maxValue) * 100;
 
@@ -39,10 +39,11 @@ export default function Gauge2({ maxValue, value, label, unit }: Props) {
   };
 
   return (
-    <div className="relative flex flex-col items-center gap-4 h-full h-f">
+    <div className="relative flex flex-col items-center gap-4 h-full">
       <ChartContainer
         config={{}}
         className={`absolute w-full aspect-square max-w-[180px] ${isEfficiencyIndicator && "mt-5"} `}
+        role="figure"
       >
         <RadialBarChart
           data={[{ maxValue: maxValue - value, value: value }]}
