@@ -18,8 +18,8 @@ export default function Text({ children, tag, className }: Props) {
     h4: "text-lg 768:text-xl 1024:text-2xl",
     h5: "text-base 768:text-lg 1024:text-xl",
     h6: "text-sm 768:text-base 1024:text-lg",
-    p: "text-base",
-    span: "text-base",
+    p: "",
+    span: "",
   };
 
   return (

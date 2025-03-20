@@ -6,20 +6,20 @@ interface Props {
   children: React.ReactNode;
   tag: "article" | "div" | "section" | "footer" | "header" | "main";
   className?: string;
-  removeDefaultPadding?: boolean;
+  smallPadding?: boolean;
 }
 
 export default function Container({
   children,
   tag,
   className,
-  removeDefaultPadding = false,
+  smallPadding = false,
 }: Props) {
   const Component = tag;
 
-  const paddingClasses = removeDefaultPadding
-    ? ""
-    : "px-6 440:px-8 640:px-12 880:px-16 1024:px-20 1280:px-36 1536:px-48 1920:px-72";
+  const paddingClasses = smallPadding
+    ? "py-6 px-6 640:py-8 1280:py-10 1280:px-8"
+    : "px-4 440:px-6 640:px-12 880:px-16 1024:px-20 1280:px-36 1536:px-48 1920:px-72";
 
   return (
     <Component className={`${paddingClasses} ${className || ""}`}>

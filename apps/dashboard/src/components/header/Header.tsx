@@ -26,11 +26,13 @@ export default function Header() {
             className="w-20"
           />
         </Link>
-        <Text tag="h6">Dashboard de Monitoramento</Text>
+        <Text tag="h6" className="hidden 768:flex">
+          Dashboard de Monitoramento
+        </Text>
       </div>
-      <div className="flex flex-row gap-12">
+      <div className="flex flex-row gap-4 640:gap-12">
         <ConnectionStatus />
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row gap-2 640:gap-4">
           <ThemeSwitch />
           <SettingsButton />
         </div>

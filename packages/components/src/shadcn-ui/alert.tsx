@@ -5,7 +5,7 @@ import { cn } from "./lib/utils";
 import { Info, TriangleAlert, CircleX } from "lucide-react";
 
 const alertVariants = cva(
-  "flex flex-row items-center gap-6 w-full rounded-xl border-2 py-4 px-6",
+  "flex flex-row items-center gap-4 880:gap-6 w-full rounded-xl border-2 py-4 px-4 880:py-4 880:px-6",
   {
     variants: {
       variant: {
