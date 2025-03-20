@@ -1,7 +1,4 @@
-// Componente de cabeçalho com logo, título e controles de conexão e tema
-// Exibe o logo da STW Tecnologia, o título "Dashboard de Monitoramento" e o status de conexão
-// Inclui botões para alternar o tema e abrir as configurações
-// O cabeçalho fica fixo no topo da página e é responsivo, com um design que se adapta ao modo claro e escuro
+// Componente de rodapé que exibe o logo da STW Tecnologia e título "Dashboard de Monitoramento"
 
 import Link from "next/link";
 import Image from "next/image";

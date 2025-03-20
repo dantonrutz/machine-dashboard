@@ -1,8 +1,10 @@
-# Dashboard de monitoramento
+# Monorepo - Dashboard de monitoramento
 
-Projeto desenvolvido para a entrevista técnica.
+Projeto desenvolvido para entrevista técnica.
 
-Optei por manter os componentes mais genéricos na biblioteca compartilhada, tornando-os reutilizáveis em diferentes partes do projeto. Já os componentes específicos, como o `Header` e o `ThemeButton`, foram mantidos na pasta `components` dentro de `apps/dashboard/src`, pois são utilizados exclusivamente nessa aplicação.
+Optei por manter os componentes mais genéricos na biblioteca compartilhada (`packages/components`), tornando-os reutilizáveis em diferentes partes do projeto. Já os componentes específicos, como o Header, Footer,ThemeButton, ... foram mantidos na pasta `components` dentro de `apps/dashboard/src`, pois são utilizados exclusivamente nessa aplicação.
+
+Esta documentação é geral. Para uma documentação mais específica do dashboard, acesse `apps/dashboard/README.md` Para uma documentação mais específica dos componentes, acesse `packages/components/READMEmd`.
 
 ## Como usar o projeto?
 
@@ -18,10 +20,23 @@ Para iniciar o ambiente de desenvolvimento, use:
 pnpm run dev
 ```
 
+Para realizar o build da aplicação, use:
+
+```sh
+pnpm run build
+```
+
+Para iniciar a build do dashboard, execute:
+
+```sh
+cd apps/dashboard
+pnpm run start
+```
+
 ## Aplicações e pacotes
 
 - `apps/dashboard`: uma aplicação [Next.js](https://nextjs.org/) com [Tailwind CSS](https://tailwindcss.com/)
-- `packages/components`: uma biblioteca de componentes compartilhada com o `dashboard`, utiliza [Tailwind CSS](https://tailwindcss.com/)
+- `packages/components`: uma biblioteca de componentes compartilhada com o `dashboard`, utiliza [Tailwind CSS](https://tailwindcss.com/) e [ShadCN UI](https://ui.shadcn.com/)
 - `@repo/types`: configurações de tipos TypeScript `types`, que pode ser compartilhada entre diferentes aplicações
 - `@repo/tailwind-config`: configurações do `tailwind`, compartilhadas entre o `dashboard` e os componentes
 - `@repo/eslint-config`: configurações do `eslint` (inclui `eslint-config-next` e `eslint-config-prettier`)

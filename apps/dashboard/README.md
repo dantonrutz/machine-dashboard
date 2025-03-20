@@ -1,28 +1,12 @@
-## Getting Started
+# Frontend - Dashboard de monitoramento
 
-First, run the development server:
+O frontend do Dashboard de Monitoramento foi desenvolvido utilizando [Next.js](https://nextjs.org/), proporcionando uma experiência otimizada e eficiente. A arquitetura do projeto está organizada em diferentes diretórios para facilitar a manutenção e escalabilidade.
 
-```bash
-yarn dev
-```
+## Estrutura de pastas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
-
-To create [API routes](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) add an `api/` directory to the `app/` directory with a `route.ts` file. For individual endpoints, create a subfolder in the `api` directory, like `api/hello/route.ts` would map to [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `src/app`: contém as páginas e a estrutura principal do Next.js com o conceito de roteamento baseado em pastas.
+- `src/actions`: armazena funções assíncronas para manipulação de dados e comunicação com o backend (neste caso foi utilizado somente para mockar os dados).
+- `src/components`: contém todos os componentes secundários, como `Footer`, `Header`, entre outros...
+- `src/hooks`: diretório destinado aos hooks customizados. Atualmente, inclui apenas um hook para verificar a conexão com a internet.
+- `src/providers`: armazena os providers do projeto. No momento, contém apenas o provider responsável por gerenciar o tema.
+- `src/screens`: diretório onde estão as telas desenvolvidas do dashboard, loading e perda de conexão.
